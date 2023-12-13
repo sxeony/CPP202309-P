@@ -1,4 +1,4 @@
-#include "기능1.h"
+#include "기능.h"
 
 int main() {
   // 기능1. 옷가게 위치 확인
@@ -47,5 +47,13 @@ int main() {
   // 1.5 선택된 지역에 있는 옷가게들의 이름과 주소 출력
   printStores(stores, selectedMajorRegion, selectedMinorRegion);
 
+  ClothingInventory inventory;
+
+  // 2. 옷가게 수량 확인하고, 업데이트하기
+  manageInventory(inventory, stores);
+
+
   return 0;
 }
+
+
