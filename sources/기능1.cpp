@@ -1,5 +1,4 @@
-#include "기능1.h"
-#include <iostream>
+#include "기능.h"
 
 // 기능1 함수 정의
 // 1.1 상위 지역의 목록을 출력하는 함수

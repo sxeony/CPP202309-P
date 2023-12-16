@@ -23,7 +23,7 @@ int main() {
       "경상남도"};
   std::map<std::string, std::vector<std::string>> minorRegions = {
       {"광주광역시", {"동구", "남구", "북구", "서구"}},
-      {"전라남도", {"목포시", "여수시", "순천시", "나주시","..."}},
+      {"전라남도", {"목포시", "여수시", "순천시", "나주시", "..."}},
       {"전라북도", {"전주시", "군산시", "..."}},
       {"서울특별시", {"강남구", "종로구", "..."}}
       // 등등....
@@ -52,8 +52,44 @@ int main() {
   // 2. 옷가게 수량 확인하고, 업데이트하기
   manageInventory(inventory, stores);
 
+  std::vector<ClothingItem> menu{
+      ClothingItem("니트", "빨간색", "  ", "M"),
+      ClothingItem("자켓", "갈색", "  ", "L"),
+      // ... 여기에 추가 옷 항목들을 넣을 수 있습니다.
+  };
 
-  return 0;
+  std::vector<ClothingItem> cart;
+  int choice = -1;
+
+  while (choice != 0) {
+    std::cout << "1: 옷 상품 보기, 2: 장바구니 담기, 3: 종료" << std::endl;
+    std::cin >> choice;
+
+    switch (choice) {
+      case 1:
+        for (auto& item : menu) {
+          item.displayDetails();  
+        }
+        break;
+      case 2:
+        std::cout << "옷 상품을 장바구니에 담아주세요: ";
+        int index;
+        std::cin >> index;
+        if (index >= 0 && index < menu.size()) {
+          cart.push_back(menu[index]);
+          std::cout << "상품이 장바구니에 담겼습니다." << std::endl;
+        } else {
+          std::cout << "유효하지 않는 옷입니다." << std::endl;
+        }
+        break;
+      case 3:
+        saveToCart(cart, "cart.txt");
+        std::cout << "장바구니에 옷이 저장되었습니다. " << std::endl;
+        break;
+      default:
+        std::cout << "다시 한 번 시도해주세요" << std::endl;
+    }
+  }
 }
 
 
