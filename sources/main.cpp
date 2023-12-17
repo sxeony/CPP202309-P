@@ -52,17 +52,24 @@ int main() {
   // 2. 옷가게 수량 확인하고, 업데이트하기
   manageInventory(inventory, stores);
 
+  // 3. 원하는 옷 장바구니에 담기
   std::vector<ClothingItem> menu{
-      ClothingItem("니트", "빨간색", "  ", "M"),
-      ClothingItem("자켓", "갈색", "  ", "L"),
-      // ... 여기에 추가 옷 항목들을 넣을 수 있습니다.
+        ClothingItem("1. 탑텐", "니트", "빨간색", "면", "M"),
+        ClothingItem("2. 탑텐", "자켓", "갈색", "가죽", "L"),
+        // ... 더 추가로 넣기
   };
 
   std::vector<ClothingItem> cart;
   int choice = -1;
 
   while (choice != 0) {
-    std::cout << "1: 옷 상품 보기, 2: 장바구니 담기, 3: 종료" << std::endl;
+    std::cout << "\n3. 옷 장바구니 담기" << endl;
+    std::cout << "============================================" << std::endl;
+    std::cout << "1: 옷 상품 보기" << std::endl;
+    std::cout << "2: 장바구니 담기" << std::endl;
+    std:: cout << "0: 종료" << std::endl;
+    std::cout << "============================================" << std::endl;
+    std::cout << "메뉴를 선택해주세요: ";
     std::cin >> choice;
 
     switch (choice) {
@@ -72,22 +79,24 @@ int main() {
         }
         break;
       case 2:
-        std::cout << "옷 상품을 장바구니에 담아주세요: ";
-        int index;
-        std::cin >> index;
-        if (index >= 0 && index < menu.size()) {
-          cart.push_back(menu[index]);
-          std::cout << "상품이 장바구니에 담겼습니다." << std::endl;
-        } else {
-          std::cout << "유효하지 않는 옷입니다." << std::endl;
-        }
-        break;
-      case 3:
-        saveToCart(cart, "cart.txt");
-        std::cout << "장바구니에 옷이 저장되었습니다. " << std::endl;
-        break;
+          std::cout << "담을 옷 상품의 번호를 입력하세요: ";
+          int index;
+          std::cin >> index;
+          --index; // 인덱스를 1 감소시켜 배열 인덱스와 일치시킴
+          if (index >= 0 && index < menu.size()) {
+              cart.push_back(menu[index]);
+              std::cout << "상품이 장바구니에 담겼습니다." << std::endl;
+          }
+          else {
+              std::cout << "유효하지 않는 옷입니다." << std::endl;
+          }
+          break;
+      case 0:
+          saveToCart(cart, "cart.txt");
+          std::cout << "장바구니에 옷이 저장되었습니다. 프로그램을 종료합니다." << std::endl;
+          break;
       default:
-        std::cout << "다시 한 번 시도해주세요" << std::endl;
+          std::cout << "다시 한 번 시도해주세요" << std::endl;
     }
   }
 }

@@ -1,13 +1,13 @@
 #include <fstream>
 #include "기능.h"
 
-ClothingItem::ClothingItem(std::string t, std::string c, std::string m,
+ClothingItem::ClothingItem(std::string st, std::string t, std::string c, std::string m,
 	std::string s)
-	: type(t), color(c), material(m), size(s) {}
+	:store(st), type(t), color(c), material(m), size(s) {}
 
 // 옷의 상세정보 출력하는 함수
 void ClothingItem::displayDetails() {
-	std::cout << "옷 종류: " << type << ", 색깔: " << color
+	std::cout << store <<" => " << "옷 종류: " << type << ", 색깔: " << color
 		<< ", 재질: " << material << ", 사이즈: " << size << std::endl;
 }
 
