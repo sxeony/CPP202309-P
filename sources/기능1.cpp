@@ -3,8 +3,8 @@
 // 기능1 : 옷가게 위치 확인
 // 1.1 상위 지역의 목록을 출력하는 함수
 void printMajorRegions(const std::vector<std::string>& majorRegions) {
-   std::cout << "1. 옷 가게 위치 확인하기 " << endl;
-   std::cout << "============================================" << std::endl;
+  std::cout << "1. 옷 가게 위치 확인하기 " << endl;
+  std::cout << "============================================" << std::endl;
   // 반복문을 이용해 majorRegions에 있는 모든 요소들 출력하기
   for (int i = 0; i < majorRegions.size(); i++) {
     std::cout << i + 1 << ": " << majorRegions[i] << std::endl;
@@ -67,5 +67,3 @@ void printStores(const std::vector<Store>& stores,
               << std::endl;
   }
 }
-
-
