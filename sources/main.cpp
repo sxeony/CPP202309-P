@@ -47,15 +47,17 @@ int main() {
   // 1.5 선택된 지역에 있는 옷가게들의 이름과 주소 출력
   printStores(stores, selectedMajorRegion, selectedMinorRegion);
 
-  ClothingInventory inventory;
-
   // 2. 옷가게 수량 확인하고, 업데이트하기
+  ClothingInventory inventory;
   manageInventory(inventory, stores);
 
   // 3. 원하는 옷 장바구니에 담기
   std::vector<ClothingItem> menu{
       ClothingItem("1. 탑텐", "니트", "빨간색", "면", "M"),
       ClothingItem("2. 탑텐", "자켓", "갈색", "가죽", "L"),
+      ClothingItem("3. 데이지", "자켓", "검은색", "가죽", "L"),
+      ClothingItem("4. MODA", "가디건", "갈색", "가죽", "M"),
+      ClothingItem("5. 구월 의상실", "청바지", "연청", "데님", "S"),
       // ... 더 추가로 넣기
   };
 
