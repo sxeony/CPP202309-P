@@ -83,6 +83,7 @@ public:
 	std::string getStoreName() const { return store; }
 };
 
+// 기능 4 : 리뷰 쓰고 확인하는 클래스
 class StoreReview {
 private:
 	std::string storeName;
