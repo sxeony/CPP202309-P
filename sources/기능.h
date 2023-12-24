@@ -118,7 +118,7 @@ void manageInventory(ClothingInventory& inventory,
 	const std::vector<Store>& stores);
 
 // 기능 3: 원하는 옷 장바구니에 담아두기
-void saveToCart(const std::vector<ClothingItem>& cart,
+void saveCartToFile(const std::vector<ClothingItem>& cart,
 	const std::string& filename);
 
 

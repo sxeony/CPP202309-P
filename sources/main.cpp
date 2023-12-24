@@ -94,7 +94,7 @@ int main() {
                     << std::endl;
           std::cout << "1: 옷 상품 보기" << std::endl;
           std::cout << "2: 장바구니에 담기" << std::endl;
-          std::cout << "0: 종료" << std::endl;
+          std::cout << "0: 메인메뉴 돌아가기" << std::endl;
           std::cout << "============================================"
                     << std::endl;
           std::cout << "옵션을 선택해주세요: ";
@@ -122,6 +122,7 @@ int main() {
             } else {
               std::cout << "유효하지 않는 번호입니다." << std::endl;
             }
+            saveCartToFile(cart, "cart.txt");
           }
         }
         break;
@@ -130,10 +131,14 @@ int main() {
       case 2: {
         subChoice = -1;
         while (true) {
-          std::cout << "\n리뷰 메뉴" << std::endl;
+          std::cout << "\n4. 리뷰 메뉴" << std::endl;
+          std::cout << "============================================"
+                    << std::endl;
           std::cout << "1: 리뷰 작성하기" << std::endl;
           std::cout << "2: 리뷰 확인하기" << std::endl;
-          std::cout << "0: 종료" << std::endl;
+          std::cout << "0: 메인 메뉴 돌아가기" << std::endl;
+          std::cout << "============================================"
+                    << std::endl;
           std::cout << "옵션을 선택해주세요: ";
           std::cin >> subChoice;
 
@@ -170,22 +175,17 @@ int main() {
                   break;
                 }
               }
-              break;
-
-            // 잘못 입력했을 때
-            default:
-              std::cout << "잘못된 선택입니다. 다시 시도해주세요." << std::endl;
           }
         }
-        // 프로그램 종료
-        case 0:
-          std::cout << "프로그램을 종료합니다." << std::endl;
-          break;
-        default:
-          std::cout << "잘못된 선택입니다. 다시 시도해주세요." << std::endl;
       }
-    }
+        // 프로그램 종료
+      case 0:
+        std::cout << "프로그램을 종료합니다." << std::endl;
+        break;
 
-    return 0;
+      default:
+        std::cout << "잘못된 선택입니다. 다시 시도해주세요." << std::endl;
+        return 0;
+    }
   }
-}
+  }

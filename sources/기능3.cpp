@@ -13,15 +13,20 @@ void ClothingItem::displayDetails() const {
             << ", 재질: " << material << ", 사이즈: " << size << std::endl;
 }
 
-// 옷을 장바구니(파일)에 담는 함수
-void saveToCart(const std::vector<ClothingItem>& cart,
-                const std::string& filename) {
+void saveCartToFile(const std::vector<ClothingItem>& cart,
+                    const std::string& filename) {
   std::ofstream file(filename);
 
+  if (!file) {
+    std::cerr << "파일을 열 수 없습니다: " << filename << std::endl;
+    return;
+  }
+
   for (const auto& item : cart) {
-    file << item.type << "," << item.color << "," << item.material << ","
+    file << item.store << "," << item.type << "," << item.color << ","
          << item.size << std::endl;
   }
 
   file.close();
+  std::cout << "장바구니가 파일에 저장되었습니다: " << filename << std::endl;
 }
