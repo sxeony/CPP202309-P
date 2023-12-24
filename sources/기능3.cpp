@@ -7,7 +7,7 @@ ClothingItem::ClothingItem(std::string st, std::string t, std::string c,
     : store(st), type(t), color(c), material(m), size(s) {}
 
 // 옷의 상세정보 출력하는 함수
-void ClothingItem::displayDetails() {
+void ClothingItem::displayDetails() const {
   std::cout << store << " => "
             << "옷 종류: " << type << ", 색깔: " << color
             << ", 재질: " << material << ", 사이즈: " << size << std::endl;
